@@ -44,6 +44,12 @@ public class SocialNetworkClass implements SocialNetwork {
 		user[i].addFriend(user2);
 		user[j].addFriend(user1);
 	}
+	
+	public boolean hasFriends (String name) {
+		int i = searchIndex(name);
+		
+		return(user[i].hasFriends());
+	}
 
 	/*
 	 * Status

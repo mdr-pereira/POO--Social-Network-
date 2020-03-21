@@ -11,6 +11,7 @@ public class Main {
 	private final static String VERIFY_USER = "CONSULTAPESSOA";
 	private final static String FRIEND_EXISTS = "CONSULTAAMIZADE";
 	private final static String ADD_FRIENDSHIP = "AMIGOS";
+	private final static String LIST_FRIENDS = "CONSULTAAMIGOS";
 	private final static String EDIT_STATUS = "NOVOESTADO";
 	private final static String GET_STATUS = "CONSULTAESTADO";
 	private final static String LIST = "PESSOAS";
@@ -32,10 +33,12 @@ public class Main {
 	private final static String ERR_EMPTY = "Rede Social vazia.";
 	private final static String FRIENDSHIP_NOT_EXIST = "Amizade inexistente.";
 	private final static String FRIENDSHIP_INVALID = "Amizade invalida.";
+	private final static String NO_FRIENDS = "Nao tem amigos registados.";
 	private final static String INV_INPUT = "Input invalido.";
 
 //	Auxiliary messages 
 	private final static String LIST_MSG = "Lista de pessoas registadas:";
+	private final static String FRIEND_LIST_MSG = "Lista de amigos:";
 	private final static String SEMICOLON = "; ";
 	//	Main
 
@@ -79,6 +82,10 @@ public class Main {
 			
 		case ADD_FRIENDSHIP:
 			addFriendship(input,ua);
+			break;
+			
+		case LIST_FRIENDS:
+			listFriends(input, ua);
 			break;
 
 		case EDIT_STATUS:
@@ -152,6 +159,24 @@ public class Main {
 			ua.addFriendship(user1, user2);
 			System.out.println(FRIENDSHIP_SET);	
 	}
+	
+	private static void listFriends (Scanner input, SocialNetworkClass ua) {
+		IteratorClass it = ua.iterator();
+		
+		input.nextLine();
+		String name = input.nextLine();
+		
+		if(ua.hasFriends(name))
+			System.out.println(NO_FRIENDS);
+		else
+			System.out.println(FRIEND_LIST_MSG);
+		
+			while (it.hasNext()) {
+				UserClass uc = it.next();
+				System.out.println(uc.getFriend(it.next()));
+			}
+			
+	}
 
 	private static void editStatus(Scanner input, SocialNetworkClass ua) {
 		input.nextLine();
@@ -185,8 +210,8 @@ public class Main {
 			System.out.println(LIST_MSG);
 
 			while(it.hasNext()) {
-				UserClass u = it.next();
-				System.out.println( u.getName() + SEMICOLON + u.getEmail());
+				UserClass uc = it.next();
+				System.out.println( uc.getName() + SEMICOLON + uc.getEmail());
 			}
 		
 	}

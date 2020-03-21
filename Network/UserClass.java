@@ -44,4 +44,12 @@ public class UserClass implements User {
 	public boolean friendExists (String name) {
 		return(fc.friendExists(name));
 	}
+	
+	public String getFriend (UserClass uc) {
+		return(fc.getFriend(uc));
+	}
+	
+	public boolean hasFriends() {
+		return (fc.hasFriends());
+	}
 }
