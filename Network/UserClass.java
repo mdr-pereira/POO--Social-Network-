@@ -4,7 +4,7 @@ public class UserClass implements User {
 
 	private String name, email, status;
 
-	FriendsArrayClass fc;
+	FriendsArrayClass fac;
 	WallClass wc;
 	
 	public UserClass (String name, String email, String initStatus) {
@@ -35,18 +35,18 @@ public class UserClass implements User {
 	 */
 	
 	public void addFriend (String name, String email) {
-		fc.addFriend(name, email);
+		fac.addFriend(name, email);
 	}
 	
 	public boolean friendExists (String name) {
-		return(fc.friendExists(name));
+		return(fac.friendExists(name));
 	}
 	
 	public boolean hasFriends() {
-		return (fc.hasFriends());
+		return (fac.hasFriends());
 	}
 	
 	public FriendsIteratorClass getIterator() {
-		return(fc.friendsIterator());
+		return(fac.friendsIterator());
 	}
 }
