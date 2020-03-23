@@ -1,6 +1,6 @@
 package Network;
 
-public class IteratorClass implements Iterator {
+public class UserIteratorClass implements UserIterator {
 	private UserClass[] user; 
 
 	private int counter; 
@@ -10,7 +10,7 @@ public class IteratorClass implements Iterator {
 	 * @param user
 	 * @param counter
 	 */
-	public IteratorClass(UserClass[] user, int counter) {
+	public UserIteratorClass(UserClass[] user, int counter) {
 		this.user = user; 
 		this.counter = counter; 
 		init();

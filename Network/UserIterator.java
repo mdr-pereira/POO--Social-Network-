@@ -1,6 +1,6 @@
 package Network;
 
-public interface Iterator {
+public interface UserIterator {
 
 	public void init();
 

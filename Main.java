@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
-import Network.IteratorClass;
+import Network.FriendsClass;
+import Network.FriendsIteratorClass;
 import Network.SocialNetworkClass;
 import Network.UserClass;
+import Network.UserIteratorClass;
 
 public class Main {
 
@@ -161,19 +163,19 @@ public class Main {
 	}
 	
 	private static void listFriends (Scanner input, SocialNetworkClass ua) {
-		IteratorClass it = ua.iterator();
-		
 		input.nextLine();
 		String name = input.nextLine();
+		
+		FriendsIteratorClass fit = ua.getIterator(name);
 		
 		if(ua.hasFriends(name))
 			System.out.println(NO_FRIENDS);
 		else
 			System.out.println(FRIEND_LIST_MSG);
 		
-			while (it.hasNext()) {
-				UserClass uc = it.next();
-				System.out.println(uc.getFriend(it.next()));
+			while (fit.hasNext()) {
+				FriendsClass fc = fit.next();
+				System.out.println(fc.getName() + ", " + ua.searchIndex(fc.getName()));
 			}
 			
 	}
@@ -201,7 +203,7 @@ public class Main {
 	}
 
 	private static void listUsers(Scanner input, SocialNetworkClass ua) {
-		IteratorClass it = ua.iterator();
+		UserIteratorClass it = ua.iterator();
 
 		if(ua.isEmpty())
 			System.out.println(ERR_EMPTY);

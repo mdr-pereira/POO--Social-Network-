@@ -3,6 +3,7 @@ package Network;
 public class SocialNetworkClass implements SocialNetwork {
 
 	private UserClass[] user;
+	
 
 	private final static int DEFAULT_SIZE = 500; 
 	private final static int GROWTH = 2; 
@@ -41,8 +42,11 @@ public class SocialNetworkClass implements SocialNetwork {
 		int i = searchIndex(user1);
 		int j = searchIndex(user2);
 
-		user[i].addFriend(user2);
-		user[j].addFriend(user1);
+		String email1 = user[i].getEmail();
+		String email2 = user[j].getEmail();
+		
+		user[i].addFriend(user2, email2);
+		user[j].addFriend(user1, email1);
 	}
 	
 	public boolean hasFriends (String name) {
@@ -87,8 +91,10 @@ public class SocialNetworkClass implements SocialNetwork {
 
 	public boolean userExists(String name) {
 		boolean exists = false;
+		
 		if (searchIndex(name) >= 0)
 			exists = true;
+		
 		return exists;
 	}
 
@@ -111,9 +117,16 @@ public class SocialNetworkClass implements SocialNetwork {
 		user = temp; 
 	}
 
-	public IteratorClass iterator() {
-		IteratorClass iterator = new IteratorClass(user, counter);
+	public UserIteratorClass iterator() {
+		UserIteratorClass iterator = new UserIteratorClass(user, counter);
 
 		return iterator;
 	}
+	
+	public FriendsIteratorClass getIterator(String name) {
+		int i = searchIndex(name);
+		
+		return(user[i].getIterator());
+	}
+
 }

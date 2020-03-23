@@ -4,13 +4,10 @@ public class UserClass implements User {
 
 	private String name, email, status;
 
-	FriendsClass fc;
+	FriendsArrayClass fc;
 	WallClass wc;
 	
 	public UserClass (String name, String email, String initStatus) {
-		FriendsClass fc = new FriendsClass();
-		WallClass wc = new WallClass();
-		
 		this.name = name;
 		this.email = email; 
 		
@@ -37,19 +34,19 @@ public class UserClass implements User {
 	 * Friend based commands. Calls <fc> 
 	 */
 	
-	public void addFriend (String name) {
-		fc.addFriend(name);
+	public void addFriend (String name, String email) {
+		fc.addFriend(name, email);
 	}
 	
 	public boolean friendExists (String name) {
 		return(fc.friendExists(name));
 	}
 	
-	public String getFriend (UserClass uc) {
-		return(fc.getFriend(uc));
-	}
-	
 	public boolean hasFriends() {
 		return (fc.hasFriends());
+	}
+	
+	public FriendsIteratorClass getIterator() {
+		return(fc.friendsIterator());
 	}
 }
