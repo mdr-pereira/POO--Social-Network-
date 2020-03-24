@@ -28,9 +28,12 @@ public class SocialNetworkClass implements SocialNetwork {
 		user[counter++] = new UserClass(name, email, initStatus);	
 	}
 	
+	
+	
 	/*
 	 * Friend based, will call on methods which operate <FriendsClass>
 	 */
+	
 	public boolean friendExists (String name1, String name2) {
 		int i = searchIndex(name1);
 		int j = searchIndex(name2);
@@ -51,22 +54,24 @@ public class SocialNetworkClass implements SocialNetwork {
 	
 	public boolean hasFriends (String name) {
 		int i = searchIndex(name);
-		
 		return(user[i].hasFriends());
 	}
 
+	public String getEmail(String name) {
+		int i = searchIndex(name);
+		return (user[i].getEmail());
+	}
+	
 	/*
 	 * Status
 	 */
 	public void editStatus (String name, String status) {
 		int i = searchIndex(name);
-
 		user[i].editStatus(status);
 	}
 
 	public String getStatus(String name) {
 		int i = searchIndex(name);
-
 		return (user[i].getStatus());
 	}
 

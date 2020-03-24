@@ -8,6 +8,8 @@ public class UserClass implements User {
 	WallClass wc;
 	
 	public UserClass (String name, String email, String initStatus) {
+		fac = new FriendsArrayClass();
+	
 		this.name = name;
 		this.email = email; 
 		
