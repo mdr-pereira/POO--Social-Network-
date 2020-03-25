@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 import Network.FriendsClass;
-import Network.FriendsIteratorClass;
+import Network.FriendsIterator;
 import Network.SocialNetworkClass;
 import Network.UserClass;
 import Network.UserIteratorClass;
@@ -160,7 +160,7 @@ public class Main {
 		else if (ua.friendExists(user1, user2)) {
 			System.out.println(FRIENDSHIP_EXISTS);
 		}
-		else if (user1 == user2) {
+		else if (user1.equals(user2)) {
 			System.out.println(FRIENDSHIP_INVALID);
 		}
 		else {
@@ -173,7 +173,7 @@ public class Main {
 		input.nextLine();
 		String name = input.nextLine();
 
-		FriendsIteratorClass fit = ua.getIterator(name);
+		FriendsIterator fit = ua.getIterator(name);
 
 		if(!ua.hasFriends(name)) {
 			System.out.println(NO_FRIENDS);
@@ -183,7 +183,7 @@ public class Main {
 
 			while (fit.hasNext()) {
 				FriendsClass fc = fit.next();
-				System.out.println(fc.getName() + ", " + ua.getEmail(fc.getName()));
+				System.out.println(fc.getName() + "; " + ua.getEmail(fc.getName()));
 			}
 		}
 	}

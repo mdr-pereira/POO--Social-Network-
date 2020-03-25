@@ -128,7 +128,7 @@ public class SocialNetworkClass implements SocialNetwork {
 		return iterator;
 	}
 	
-	public FriendsIteratorClass getIterator(String name) {
+	public FriendsIterator getIterator(String name) {
 		int i = searchIndex(name);
 		
 		return(user[i].getIterator());

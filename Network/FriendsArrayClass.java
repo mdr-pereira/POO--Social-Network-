@@ -69,8 +69,8 @@ public class FriendsArrayClass implements FriendsArray {
 		}
 	}
 	
-	public FriendsIteratorClass friendsIterator() {
-		FriendsIteratorClass friendsIterator = new FriendsIteratorClass(friend, counter);
+	public FriendsIterator friendsIterator() {
+		FriendsIterator friendsIterator = new FriendsIteratorClass(friend, counter);
 		
 		return friendsIterator;
 	}

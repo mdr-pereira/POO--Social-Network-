@@ -48,7 +48,7 @@ public class UserClass implements User {
 		return (fac.hasFriends());
 	}
 	
-	public FriendsIteratorClass getIterator() {
+	public FriendsIterator getIterator() {
 		return(fac.friendsIterator());
 	}
 }

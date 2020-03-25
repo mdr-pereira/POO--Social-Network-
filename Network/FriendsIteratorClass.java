@@ -1,6 +1,6 @@
 package Network;
 
-public class FriendsIteratorClass {
+public class FriendsIteratorClass implements FriendsIterator {
 	private FriendsClass[] friend;
 	
 	private int counter;

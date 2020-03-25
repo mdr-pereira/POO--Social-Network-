@@ -1,10 +1,10 @@
 package Network;
 
-public interface FriendsIterator {
+public interface WallIterator {
 
 	public void init();
-
+	
 	public boolean hasNext();
-
-	public FriendsClass next();
+	
+	public WallClass next();
 }
