@@ -22,21 +22,21 @@ public class Main {
 	//	Static success and error messages
 
 	//Success/Error
-	private final static String EXISTS = "Pessoa registada.";	
-	private final static String FRIENDSHIP_EXISTS = "Amizade existente."; 
+	private final static String EXISTS = "Pessoa registada.\n";	
+	private final static String FRIENDSHIP_EXISTS = "Amizade existente.\n"; 
 	//Success
-	private final static String REGISTERED = "Pessoa registada com sucesso.";
-	private final static String FRIENDSHIP_SET = "Amizade criada.";
-	private final static String STATUS_SET = "Estado alterado.";
+	private final static String REGISTERED = "Pessoa registada com sucesso.\n";
+	private final static String FRIENDSHIP_SET = "Amizade criada.\n";
+	private final static String STATUS_SET = "Estado alterado.\n";
 
-	private final static String EXIT_MSG = "Adeus."; 
+	private final static String EXIT_MSG = "Adeus.\n"; 
 	//Error
-	private final static String NO_REG = "Sem registo.";
-	private final static String ERR_EMPTY = "Rede Social vazia.";
-	private final static String FRIENDSHIP_NOT_EXIST = "Amizade inexistente.";
-	private final static String FRIENDSHIP_INVALID = "Amizade invalida.";
-	private final static String NO_FRIENDS = "Nao tem amigos registados.";
-	private final static String INV_INPUT = "Input invalido.";
+	private final static String NO_REG = "Sem registo.\n";
+	private final static String ERR_EMPTY = "Rede Social vazia.\n";
+	private final static String FRIENDSHIP_NOT_EXIST = "Amizade inexistente.\n";
+	private final static String FRIENDSHIP_INVALID = "Amizade invalida.\n";
+	private final static String NO_FRIENDS = "Nao tem amigos registados.\n";
+	private final static String INV_INPUT = "Input invalido.\n";
 
 	//	Auxiliary messages 
 	private final static String LIST_MSG = "Lista de pessoas registadas:";
@@ -140,9 +140,15 @@ public class Main {
 		String user1 = input.nextLine();
 		String user2 = input.nextLine();
 
-		if(!ua.friendExists(user1, user2)) {
+
+		if((!ua.userExists(user1)) || (!ua.userExists(user2))) {
 			System.out.println(FRIENDSHIP_NOT_EXIST);
 		}
+		
+		else if(!ua.friendExists(user1, user2)) {
+			System.out.println(FRIENDSHIP_NOT_EXIST);
+		}
+		
 		else {
 			System.out.println(FRIENDSHIP_EXISTS);
 		}
@@ -185,6 +191,7 @@ public class Main {
 				FriendsClass fc = fit.next();
 				System.out.println(fc.getName() + "; " + ua.getEmail(fc.getName()));
 			}
+			System.out.println();
 		}
 	}
 
@@ -210,7 +217,7 @@ public class Main {
 			System.out.println(NO_REG);
 		}
 		else {
-			System.out.println(ua.getStatus(name));
+			System.out.println(ua.getStatus(name) + "\n");
 		}
 	}
 
@@ -227,6 +234,7 @@ public class Main {
 				UserClass uc = it.next();
 				System.out.println( uc.getName() + SEMICOLON + uc.getEmail());
 			}
+		System.out.println();
 		}	
 	}
 }

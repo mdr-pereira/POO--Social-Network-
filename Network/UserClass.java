@@ -5,7 +5,6 @@ public class UserClass implements User {
 	private String name, email, status;
 
 	FriendsArrayClass fac;
-	WallClass wc;
 	
 	public UserClass (String name, String email, String initStatus) {
 		fac = new FriendsArrayClass();
